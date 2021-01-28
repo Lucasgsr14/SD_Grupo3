@@ -5,7 +5,7 @@ entity Somador16bits is
             cout : out BIT);
 end Somador16bits;
 
-architecture ckt of Somador8bits is
+architecture ckt of Somador16bits is
   
   signal co : bit_vector (15 downto 0);
   
