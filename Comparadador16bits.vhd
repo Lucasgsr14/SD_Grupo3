@@ -1,11 +1,11 @@
-entity ComparadorMagnitude8bits is
+entity Comparador is
   port( X, Y : in bit_vector(15 downto 0);
         LT, EQ, GT : out BIT);
-end ComparadorMagnitude8bits;
+end Comparador;
 
-architecture ckt of ComparadorMagnitude8bits is
+architecture ckt of Comparador is
 
-signal v,f : bit_vector(12 downto 0);
+signal v,f : bit_vector(15 downto 0);
 signal igual,maior,menor : BIT;
                                                         
 begin 
