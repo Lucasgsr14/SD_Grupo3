@@ -1,0 +1,27 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity bs is
+  port (C, clk, reset : in std_logic;
+        btn : out std_logic);
+end bs;
+
+architecture ckt of bs is
+
+ component ffd is
+    port (clk,D,P,C : in  std_logic;
+                  q : out std_logic);
+ end component;
+ 
+ signal s1, s0, n1, n0 : std_logic;   
+ 
+ begin
+ 
+  s11 : ffd port map(clk=>clk,D=>n1,P=>'1',C=>reset,q=>s1);
+  s00 : ffd port map(clk=>clk,D=>n0,P=>'1',C=>reset,q=>s0);
+    
+  n1 <= (not(s1) and s0) or (s1 and not(s0) and c);
+  n0 <= not(s1) and not(s0) and c;
+  btn <= not(s1) and s0;
+  
+end ckt;
