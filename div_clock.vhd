@@ -6,7 +6,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity div_clock is
 port(
   clock_in  : in std_logic;
-  count     : buffer std_logic_vector(7 downto 0);
+  count     : buffer std_logic_vector(23 downto 0);
   clock_out : out std_logic);
 end div_clock;
  
@@ -16,7 +16,7 @@ begin
   -- nosso clock de saída recebe 1
   -- ou seja, nosso clock de saida é 1/4 do clock de entrada
  
-  clock_out <= '1' when count >= "00100000" else
+  clock_out <= '1' when count >= "010011000100101100111111" else
                '0';
  
   process(clock_in)
@@ -26,10 +26,8 @@ begin
     if(clock_in ='1' and clock_in'event) then
       count <= count + 1;
     end if;
- 
-    -- quando o contador chega em 5 ele é zerado
-    if(count = "01000001") then
-      count <= "00000000";
+    if(count = "100110001001011001111111") then
+      count <= "000000000000000000000000";
     end if;
   end process;
 end teste;
