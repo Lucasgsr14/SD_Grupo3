@@ -1,28 +1,29 @@
-<<<<<<< HEAD
-library ieee ;
-use ieee.std_logic_1164.all;
-
+library ieee;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+ 
 entity botaoSinc is
-	port ( s1, s0, button, n1, n0 : in std_logic ;
-			 saida : out std_logic 
-			 );
-end botaoSinc ;
-
-architecture logica of botaoSinc is
+port(
+  clock_in, b  : in std_logic;
+  count     : buffer std_logic_vector(23 downto 0);
+  pulso : out std_logic);
+end botaoSinc;
+ 
+architecture teste of botaoSinc is
 begin
-	saida <= not(s1) and s0 and not(n0);
-=======
-library ieee ;
-use ieee.std_logic_1164.all;
-
-entity botaoSinc is
-	port ( s1, s0, button, n1, n0 : in std_logic ;
-			 saida : out std_logic 
-			 );
-end botaoSinc ;
-
-architecture logica of botaoSinc is
-begin
-	saida <= not(s1) and s0 and not(n0);
->>>>>>> 2e2b454fd21f3530828c46ea1a38ba8de22cb2c4
-end logica ;
+  pulso <= '1' when count = "000000000000000000000001" else
+               '0';
+ 
+  process(clock_in)
+  begin
+    -- a cada borda de subida do clock de entrada
+    -- o contador é incrementado --
+    if(clock_in ='1' and clock_in'event and b = '1') then
+      count <= count + 1;
+    end if;
+    if(b = '0') then
+      count <= "000000000000000000000000";
+    end if;
+  end process;
+end teste;
