@@ -3,7 +3,7 @@ entity mux4x1 is
 	     sel : in bit_vector(1 downto 0);    
       	Z : out bit_vector(16 downto 0));
 
-end mux3x1;
+end mux4x1;
 
 architecture ARKMUX of mux4x1 is
   
