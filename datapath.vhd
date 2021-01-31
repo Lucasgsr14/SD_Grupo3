@@ -22,7 +22,7 @@ component bloco_comp is
         index_gt_0, msg_gt_tot, amostra_gt_tam : out std_logic;
 	     index_eq_0, msg_eq_tot, amostra_eq_tam : out std_logic;
 	     index_it_0, msg_it_tot, amostra_it_tam : out std_logic;
-	     msg_lt_1, msg_eq_1, msg_gt_1, tam_lt_10, tam_eq_10, tam_gt_10, tot_lt_25, tot_eq_25, tot_gt_25, tam_lt_2048, tam_eq_2048, tam_gt_10 : out std_logic;
+	     msg_lt_1, msg_eq_1, msg_gt_1, tam_lt_10, tam_eq_10, tam_gt_10, tot_lt_25, tot_eq_25, tot_gt_25, tam_lt_2048, tam_eq_2048, tam_gt_2048 : out std_logic;
 		  temp_lt_2, temp_eq_2, temp_gt_2, temp_lt_5, temp_eq_5, temp_gt_5, temp_lt_60, temp_eq_60, temp_gt_60 : out std_logic);
 end component;
 
@@ -59,7 +59,9 @@ signal csum : std_logic
 signal aux_reg_tam, aux_reg_msg, aux_reg_tot, aux_reg_index, aux_reg_amostra : std_logic_vector(15 downto 0);
 signal aux_sum_tam, aux_sum_msg, aux_sum_tot, aux_sum_index, aux_sum_amostra : std_logic_vector(15 downto 0); 
 signal aux_index_gt_0, aux_msg_gt_tot, aux_msg_gt_tam, aux_index_eq_0, aux_msg_eq_tot, aux_amostra_eq_tam, aux_index_it_0, aux_msg_it_tot, aux_amostra_it_tam : std_logic; 
-signal aux_msg_lt_1, aux_msg_eq_1, aux_msg_gt_1, aux_tam_lt_10, aux_tam_eq_10, aux_tam_gt_10, aux_tot_lt_25, aux_tot_eq_25, aux_tot_gt_25
+signal aux_msg_lt_1, aux_msg_eq_1, aux_msg_gt_1, aux_tam_lt_10, aux_tam_eq_10, aux_tam_gt_10, aux_tot_lt_25, aux_tot_eq_25, aux_tot_gt_25, aux_tam_lt_2048, aux_tam_eq_2048, aux_tam_gt_2048 : std_logic;
+signal aux_temp_lt_2, aux_temp_eq_2, aux_temp_gt_2, aux_temp_lt_5, aux_temp_eq_5, aux_temp_gt_5, aux_temp_lt_60, aux_temp_eq_60, aux_temp_gt_60 : std_logic;
+--signal aux_tam_msg, aux_msg_atual, aux_tot_msg, aux_amostra_atual, aux_index_msg
 
 begin
 
@@ -75,13 +77,21 @@ port_comp : bloco_comp port map(tam_msg => aux_reg_tam, amostra_atual => aux_reg
                                 index_gt_0 => aux_index_gt_0, msg_gt_tot => aux_msg_gt_tot, amostra_gt_tam => aux_msg_gt_tam, index_eq_0 => aux_index_eq_0, msg_eq_tot => aux_msg_eq_tot,
 										  amostra_eq_tam => aux_amostra_eq_tam, index_it_0 => aux_index_it_0, msg_it_tot => aux_msg_it_tot, amostra_it_tam => aux_amostra_it_tam,
 										  msg_lt_1 => aux_msg_lt_1, msg_eq_1 => aux_msg_eq_1, msg_gt_1 => aux_msg_gt_1, tam_lt_10 => aux_tam_lt_10, tam_eq_10 => aux_tam_eq_10, tam_gt_10 => aux_tam_gt_10,
-										  tot_lt_25 => aux_tot_lt_25)
-
-
-
-
-
-
-
-
-
+										  tot_lt_25 => aux_tot_lt_25, tot_gt_25=> aux_tot_gt_25, tam_lt_2048=> aux_tam_lt_2048, tam_eq_2048=> aux_tam_eq_2048, tam_gt_2048=> aux_tam_gt_2048
+										  temp_lt_2 => aux_temp_lt_2, temp_eq_2=> aux_temp_eq_2, temp_gt_2=> aux_temp_gt_2, temp_lt_5 => aux_temp_lt_5, temp_eq_5=> aux_temp_eq_5, temp_gt_5=> aux_temp_gt_5
+										  temp_lt_60 => aux_temp_lt_60, temp_eq_60=> aux_temp_eq_60, temp_gt_2=> aux_temp_gt_60);
+										  
+										  
+port_reg : bloco_reg port map (
+										 );										  
+										  
+										  
+										  
+										  
+										  
+										  
+										  
+										  
+										  
+										  
+										  
