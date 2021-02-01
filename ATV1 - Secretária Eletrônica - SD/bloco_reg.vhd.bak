@@ -1,0 +1,5 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity bloco_reg is
+    port (tam_msg, msg_atual, tot_msg, amostra_atual, index_msg, aux_begin_addr, addr : in )

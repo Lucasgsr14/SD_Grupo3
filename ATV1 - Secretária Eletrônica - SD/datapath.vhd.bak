@@ -1,0 +1,8 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity datapath is
+     port (temp_clr, addr_clr, tot_msg_ld, ram_en_clr, ram_en_ld, mux_tot_s, msg_atual_ld, temp_en, mux_atual_s, msg_atual_clr,
+		  index_ld, mux_index_s, ram_rw_ld, tot_msg_clr, ram_rw_clr, addr_ld, tam_msg_ld, mux_tam_s, amostra_clr, tam_msg_clr, aux_addr_ld,
+		  data_ld, mux_addr_ld_s, da_clr, da_ld, amostra_ld, flag_rt_ld, flag_rt_clr : in std_logic;
+		  

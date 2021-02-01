@@ -1,0 +1,10 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity bloco_sum is
+       port (tam_msg, msg_atual, tot_msg, index_msg, amostra_atual, addr : in std_logic_vector(15 downto 0);
+		       out_sum_tam, out_sum_msg, out_sum_tot, out_sum_index, out_sum_amostra, out_sum_addr : out std_logic_vector(15 downto 0));
+end bloco_sum;
+
+architecture ckt of bloco_sum is
+
