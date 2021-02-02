@@ -40,8 +40,8 @@ architecture ckt of controleSecretaria is
 	              '0' when others;
 	
 	with estado select
-	mux_tot_s <= '1' when transicaoInicial,
-	             '0' when others;
+	mux_tot_s <= '0' when transicaoInicial,
+	             '1' when others;
 	
 	with estado select
 	msg_atual_ld <= '1' when BackE, '1' when NextE, '1' when Inicial, '1' when Repouso, '1' when msg1, '1' when msg2,
@@ -52,8 +52,8 @@ architecture ckt of controleSecretaria is
               '0' when others;
 				 
 	with estado select
-   mux_atual_s <= '1' when Inicial, '1' when Repouso,
-                  '0' when others; 
+   mux_atual_s <= '0' when Inicial, '0' when Repouso, '0' when transicaoInicial,
+                  '1' when others; 
 	
    with estado select
    msg_atual_clr <= '1' when reproducaoTotal,
